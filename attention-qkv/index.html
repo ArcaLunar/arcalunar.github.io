@@ -7,8 +7,8 @@
 <meta name="generator" content="Hexo 7.3.0">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
-<link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/all.css" rel="stylesheet">
 <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style type="text/css">
 
 div.hcb-content.hcb-block.hcbnote, details.hcb-content.box.hcbnote,div.hcb-content.hcb-block.hcbabstract, details.hcb-content.box.hcbabstract,div.hcb-content.hcb-block.hcbinfo, details.hcb-content.box.hcbinfo,div.hcb-content.hcb-block.hcbtip, details.hcb-content.box.hcbtip,div.hcb-content.hcb-block.hcbsuccess, details.hcb-content.box.hcbsuccess,div.hcb-content.hcb-block.hcbquestion, details.hcb-content.box.hcbquestion,div.hcb-content.hcb-block.hcbwarning, details.hcb-content.box.hcbwarning,div.hcb-content.hcb-block.hcbfailure, details.hcb-content.box.hcbfailure,div.hcb-content.hcb-block.hcbdanger, details.hcb-content.box.hcbdanger,div.hcb-content.hcb-block.hcbbug, details.hcb-content.box.hcbbug,div.hcb-content.hcb-block.hcbexample, details.hcb-content.box.hcbexample,div.hcb-content.hcb-block.hcbquote, details.hcb-content.box.hcbquote {
@@ -305,7 +305,7 @@ div.hcb-content.hcb-cards-content.active {
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"arcalunar.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"arcalunar.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="Query, Key, Value QKV\tt QKVQKV 可以类比为“查字典”的过程，对于要查找的单词 Q\tt QQ，在字典 D&#x3D;{(K,V)}\mathcal{D}&#x3D;\{(\mathtt{K,V})\}D&#x3D;{(K,V)} 里查找有关联的条目，K\tt KK 就是字典收录的单词，V\tt VV 就是这个收录的单词的意义。 那么我们怎么通过 (K,V)\tt (K,V)(K,V) 来确定要">
@@ -316,9 +316,10 @@ div.hcb-content.hcb-cards-content.active {
 <meta property="og:description" content="Query, Key, Value QKV\tt QKVQKV 可以类比为“查字典”的过程，对于要查找的单词 Q\tt QQ，在字典 D&#x3D;{(K,V)}\mathcal{D}&#x3D;\{(\mathtt{K,V})\}D&#x3D;{(K,V)} 里查找有关联的条目，K\tt KK 就是字典收录的单词，V\tt VV 就是这个收录的单词的意义。 那么我们怎么通过 (K,V)\tt (K,V)(K,V) 来确定要">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-21T04:55:49.000Z">
-<meta property="article:modified_time" content="2025-01-21T04:56:11.613Z">
+<meta property="article:modified_time" content="2025-01-21T05:49:34.786Z">
 <meta property="article:author" content="ArcaLunar">
 <meta property="article:tag" content="LLM">
+<meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://arcalunar.github.io/attention-qkv/">
@@ -423,6 +424,11 @@ div.hcb-content.hcb-cards-content.active {
     <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
+        <li class="menu-item menu-item-roadmap">
+
+    <a href="/roadmap/" rel="section"><i class="fa fa-sitemap fa-fw"></i>roadmap</a>
+
+  </li>
   </ul>
 </nav>
 
@@ -475,7 +481,7 @@ div.hcb-content.hcb-cards-content.active {
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2025-01-21 12:55:49 / Modified: 12:56:11" itemprop="dateCreated datePublished" datetime="2025-01-21T12:55:49+08:00">2025-01-21</time>
+              <time title="Created: 2025-01-21 12:55:49 / Modified: 13:49:34" itemprop="dateCreated datePublished" datetime="2025-01-21T12:55:49+08:00">2025-01-21</time>
             </span>
 
           
@@ -521,6 +527,7 @@ div.hcb-content.hcb-cards-content.active {
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/LLM/" rel="tag"># LLM</a>
+              <a href="/tags/Deep-Learning/" rel="tag"># Deep Learning</a>
           </div>
 
         
@@ -532,7 +539,10 @@ div.hcb-content.hcb-cards-content.active {
     <a href="/corpfin-lec01/" rel="prev" title="FINA1310 Lecture 1">
       <i class="fa fa-chevron-left"></i> FINA1310 Lecture 1
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/ddpm-math/" rel="next" title="DDPM 背后的数学原理">
+      DDPM 背后的数学原理 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -605,14 +615,20 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -645,7 +661,7 @@ div.hcb-content.hcb-cards-content.active {
   </span>
   <span class="author" itemprop="copyrightHolder">ArcaLunar</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
         
@@ -674,7 +690,7 @@ div.hcb-content.hcb-cards-content.active {
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
@@ -739,6 +755,8 @@ window.addEventListener('pjax:success', () => {
 </script>
 
 
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
 
 
   
@@ -753,8 +771,41 @@ window.addEventListener('pjax:success', () => {
 
 
 
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
 
 
     <div id="pjax">
