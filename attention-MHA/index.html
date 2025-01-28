@@ -302,21 +302,29 @@ div.hcb-content.hcb-cards-content.active {
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"arcalunar.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Arca&#39;s Blog">
-<meta property="og:url" content="http://arcalunar.github.io/categories/Deep-Learning/Coding/index.html">
+  <meta name="description" content="有的时候，给定同样的 Q, K, V 的输入，我们希望模型能够学习到不同的知识，或者能够结合不同的知识。 所以，我们可以让这些相同的 Q, K, V 经过不同的 projection 之后输入到 hhh 个不同的 Attention 里面，平行地进行 Attention Pooling，最后再收集这些输出，拼接在一起再经过一个线性变换，得到最终的输出。这个机制被称作 Multi-Head Atte">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多头注意力机制 Multi-Head Attention">
+<meta property="og:url" content="http://arcalunar.github.io/attention-MHA/index.html">
 <meta property="og:site_name" content="Arca&#39;s Blog">
+<meta property="og:description" content="有的时候，给定同样的 Q, K, V 的输入，我们希望模型能够学习到不同的知识，或者能够结合不同的知识。 所以，我们可以让这些相同的 Q, K, V 经过不同的 projection 之后输入到 hhh 个不同的 Attention 里面，平行地进行 Attention Pooling，最后再收集这些输出，拼接在一起再经过一个线性变换，得到最终的输出。这个机制被称作 Multi-Head Atte">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://arcalunar.github.io/picx-images-hosting/attention/Screenshot-from-2025-01-16-16-07-00.8ojse4uopc.webp">
+<meta property="article:published_time" content="2025-01-27T06:57:22.000Z">
+<meta property="article:modified_time" content="2025-01-28T00:53:05.839Z">
 <meta property="article:author" content="ArcaLunar">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://arcalunar.github.io/picx-images-hosting/attention/Screenshot-from-2025-01-16-16-07-00.8ojse4uopc.webp">
 
-<link rel="canonical" href="http://arcalunar.github.io/categories/Deep-Learning/Coding/">
+<link rel="canonical" href="http://arcalunar.github.io/attention-MHA/">
 
 
 <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.6.0/css/all.css" rel="stylesheet">
@@ -325,12 +333,12 @@ div.hcb-content.hcb-cards-content.active {
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Category: Coding | Arca's Blog</title>
+  <title>多头注意力机制 Multi-Head Attention | Arca's Blog</title>
   
 
 
@@ -444,51 +452,112 @@ div.hcb-content.hcb-cards-content.active {
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">Coding
-          <small>Category</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://arcalunar.github.io/attention-MHA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="ArcaLunar">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Arca's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          多头注意力机制 Multi-Head Attention
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2025-01-27 14:57:22" itemprop="dateCreated datePublished" datetime="2025-01-27T14:57:22+08:00">2025-01-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2025-01-28 08:53:05" itemprop="dateModified" datetime="2025-01-28T08:53:05+08:00">2025-01-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/LLM/" itemprop="url" rel="index"><span itemprop="name">LLM</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/LLM/Transformer/" itemprop="url" rel="index"><span itemprop="name">Transformer</span></a>
+                </span>
+                  , 
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/LLM/Transformer/Attention/" itemprop="url" rel="index"><span itemprop="name">Attention</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
+        <p>有的时候，给定同样的 Q, K, V 的输入，我们希望模型能够学习到不同的知识，或者能够结合不同的知识。</p>
+<p>所以，我们可以让这些相同的 Q, K, V 经过不同的 projection 之后输入到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>h</mi></mrow><annotation encoding="application/x-tex">h</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6944em;"></span><span class="mord mathnormal">h</span></span></span></span> 个不同的 Attention 里面，平行地进行 Attention Pooling，最后再收集这些输出，拼接在一起再经过一个线性变换，得到最终的输出。这个机制被称作 <ins>Multi-Head Attention</ins></p>
+<img src="https://arcalunar.github.io/picx-images-hosting/attention/Screenshot-from-2025-01-16-16-07-00.8ojse4uopc.webp" class="" title="MHA fancybox:true">
+<h2 id="代码实现"><a class="markdownIt-Anchor" href="#代码实现"></a> 代码实现</h2>
+<p>Multi-Head Attention 就是多个 Attention 的线性组合，需要先实现好 Attention 模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MHA</span>(nn.Module):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, dim_hidden, dim_heads, dropout, bias=<span class="literal">False</span>, **kwargs</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        <span class="variable language_">self</span>.dim_heads = dim_heads</span><br><span class="line">        <span class="variable language_">self</span>.attention = Attention(dropout) <span class="comment"># 假设 Attention 模块实现为类</span></span><br><span class="line">        <span class="variable language_">self</span>.W_q = nn.LazyLinear(dim_hidden, bias=bias)</span><br><span class="line">        <span class="variable language_">self</span>.W_k = nn.LazyLinear(dim_hidden, bias=bias)</span><br><span class="line">        <span class="variable language_">self</span>.W_v = nn.LazyLinear(dim_hidden, bias=bias)</span><br><span class="line">        <span class="variable language_">self</span>.W_o = nn.LazyLinear(dim_hidden, bias=bias)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, q, k, v, valid_lens</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Shape: [Batch, # of Q / KV-pair, num_hidden]</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2025-01-22T14:56:33+08:00"
-              content="2025-01-22">
-          01-22
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <div class="post-title">
-          <a class="post-title-link" href="/einops/" itemprop="url">
-            <span itemprop="name">PyTorch 张量操作：einops 库</span>
-          </a>
-      </div>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/attention-scoring/" rel="prev" title="Attention Scoring">
+      <i class="fa fa-chevron-left"></i> Attention Scoring
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/kaggle-mnist/" rel="next" title="Kaggle 竞赛（一）：MNIST 数据集">
+      Kaggle 竞赛（一）：MNIST 数据集 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
-
-    </div>
-  </div>
   
   
-  
-
   
 
 
@@ -541,6 +610,7 @@ div.hcb-content.hcb-cards-content.active {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text"> 代码实现</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -554,20 +624,20 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

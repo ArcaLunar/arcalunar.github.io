@@ -302,6 +302,8 @@ div.hcb-content.hcb-cards-content.active {
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
@@ -316,7 +318,7 @@ div.hcb-content.hcb-cards-content.active {
 <meta property="og:description" content="DDPM（Denoising Diffusion Probabilistic Models，去噪扩散概率模型）是一种生成模型，属于深度生成模型的一种。它通过模拟物理中的扩散过程来生成数据，近年来在图像生成、音频生成等领域取得了显著成果。DDPM 的核心思想是通过逐步添加噪声将数据分布转化为简单的分布（如高斯分布），然后通过学习逆过程从噪声中恢复出原始数据。本文旨在解析 DDPM 背后的数学原理">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-21T05:32:48.000Z">
-<meta property="article:modified_time" content="2025-01-22T01:38:27.554Z">
+<meta property="article:modified_time" content="2025-01-28T00:54:13.986Z">
 <meta property="article:author" content="ArcaLunar">
 <meta property="article:tag" content="Deep Learning">
 <meta property="article:tag" content="Image Generation">
@@ -489,7 +491,7 @@ div.hcb-content.hcb-cards-content.active {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2025-01-22 09:38:27" itemprop="dateModified" datetime="2025-01-22T09:38:27+08:00">2025-01-22</time>
+                <time title="Modified: 2025-01-28 08:54:13" itemprop="dateModified" datetime="2025-01-28T08:54:13+08:00">2025-01-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -497,11 +499,11 @@ div.hcb-content.hcb-cards-content.active {
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index"><span itemprop="name">Deep Learning</span></a>
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">深度学习</span></a>
                 </span>
                   , 
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deep-Learning/Diffusion-Model/" itemprop="url" rel="index"><span itemprop="name">Diffusion Model</span></a>
+                  <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E6%89%A9%E6%95%A3%E6%A8%A1%E5%9E%8B/" itemprop="url" rel="index"><span itemprop="name">扩散模型</span></a>
                 </span>
             </span>
 
@@ -620,20 +622,20 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

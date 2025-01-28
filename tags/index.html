@@ -302,6 +302,8 @@ div.hcb-content.hcb-cards-content.active {
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
@@ -474,10 +476,10 @@ div.hcb-content.hcb-cards-content.active {
       <div class="post-body">
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-              24 tags in total
+              26 tags in total
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/ACM/" style="font-size: 24px; color: #4f4f4f">ACM</a> <a href="/tags/Attention/" style="font-size: 18px; color: #8e8e8e">Attention</a> <a href="/tags/C/" style="font-size: 18px; color: #8e8e8e">C++</a> <a href="/tags/Corporate-Finance/" style="font-size: 12px; color: #ccc">Corporate Finance</a> <a href="/tags/Deep-Learning/" style="font-size: 30px; color: #111">Deep Learning</a> <a href="/tags/Diffusion-Model/" style="font-size: 18px; color: #8e8e8e">Diffusion Model</a> <a href="/tags/Economics/" style="font-size: 12px; color: #ccc">Economics</a> <a href="/tags/FINA1310/" style="font-size: 12px; color: #ccc">FINA1310</a> <a href="/tags/Image-Generation/" style="font-size: 18px; color: #8e8e8e">Image Generation</a> <a href="/tags/Implementation/" style="font-size: 12px; color: #ccc">Implementation</a> <a href="/tags/LLM/" style="font-size: 18px; color: #8e8e8e">LLM</a> <a href="/tags/Linux/" style="font-size: 24px; color: #4f4f4f">Linux</a> <a href="/tags/Linux-%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" style="font-size: 12px; color: #ccc">Linux,文本处理</a> <a href="/tags/ML/" style="font-size: 18px; color: #8e8e8e">ML</a> <a href="/tags/Microeconomics/" style="font-size: 12px; color: #ccc">Microeconomics</a> <a href="/tags/Model-Quantization/" style="font-size: 12px; color: #ccc">Model Quantization</a> <a href="/tags/Model-Training/" style="font-size: 12px; color: #ccc">Model Training</a> <a href="/tags/Probability/" style="font-size: 12px; color: #ccc">Probability</a> <a href="/tags/Python/" style="font-size: 18px; color: #8e8e8e">Python</a> <a href="/tags/Wallpaper/" style="font-size: 12px; color: #ccc">Wallpaper</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 12px; color: #ccc">开发</a> <a href="/tags/%E6%95%B0%E5%AD%A6-%E6%95%B0%E8%AE%BA/" style="font-size: 12px; color: #ccc">数学,数论</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 12px; color: #ccc">数学建模</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12px; color: #ccc">算法</a>
+              <a href="/tags/ACM/" style="font-size: 24px; color: #4f4f4f">ACM</a> <a href="/tags/Attention/" style="font-size: 24px; color: #4f4f4f">Attention</a> <a href="/tags/C/" style="font-size: 18px; color: #8e8e8e">C++</a> <a href="/tags/Corporate-Finance/" style="font-size: 12px; color: #ccc">Corporate Finance</a> <a href="/tags/Deep-Learning/" style="font-size: 30px; color: #111">Deep Learning</a> <a href="/tags/DeepSeek/" style="font-size: 12px; color: #ccc">DeepSeek</a> <a href="/tags/Diffusion-Model/" style="font-size: 18px; color: #8e8e8e">Diffusion Model</a> <a href="/tags/Economics/" style="font-size: 12px; color: #ccc">Economics</a> <a href="/tags/FINA1310/" style="font-size: 12px; color: #ccc">FINA1310</a> <a href="/tags/Image-Generation/" style="font-size: 18px; color: #8e8e8e">Image Generation</a> <a href="/tags/Implementation/" style="font-size: 12px; color: #ccc">Implementation</a> <a href="/tags/LLM/" style="font-size: 24px; color: #4f4f4f">LLM</a> <a href="/tags/Linux/" style="font-size: 24px; color: #4f4f4f">Linux</a> <a href="/tags/Linux-%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86/" style="font-size: 12px; color: #ccc">Linux,文本处理</a> <a href="/tags/ML/" style="font-size: 18px; color: #8e8e8e">ML</a> <a href="/tags/Microeconomics/" style="font-size: 12px; color: #ccc">Microeconomics</a> <a href="/tags/Model-Quantization/" style="font-size: 12px; color: #ccc">Model Quantization</a> <a href="/tags/Model-Training/" style="font-size: 12px; color: #ccc">Model Training</a> <a href="/tags/Probability/" style="font-size: 12px; color: #ccc">Probability</a> <a href="/tags/Python/" style="font-size: 18px; color: #8e8e8e">Python</a> <a href="/tags/Wallpaper/" style="font-size: 12px; color: #ccc">Wallpaper</a> <a href="/tags/%E5%BC%80%E5%8F%91/" style="font-size: 12px; color: #ccc">开发</a> <a href="/tags/%E6%95%B0%E5%AD%A6-%E6%95%B0%E8%AE%BA/" style="font-size: 12px; color: #ccc">数学,数论</a> <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" style="font-size: 12px; color: #ccc">数学建模</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 12px; color: #ccc">深度学习</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 12px; color: #ccc">算法</a>
             </div>
           </div>
         
@@ -554,20 +556,20 @@ div.hcb-content.hcb-cards-content.active {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">44</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">26</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
